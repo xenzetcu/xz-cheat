@@ -1,0 +1,13 @@
+apply plugin: "com.android.application"
+
+android {
+    namespace "com.xenzetcu.menu"
+    compileSdk 34
+    defaultConfig {
+        applicationId "com.xenzetcu.menu"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+    }
+}
