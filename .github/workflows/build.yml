@@ -30,10 +30,17 @@ jobs:
           yes | sdkmanager --licenses
           sdkmanager "platforms;android-34" "build-tools;34.0.0" "platform-tools"
           
+      - name: Check files (DEBUG)
+        run: |
+          echo "=== Смотрим, что видит GitHub ==="
+          ls -R .
+          echo "=== Проверка index.html ==="
+          if [ -f "index.html" ]; then echo "index.html НАЙДЕН"; else echo "index.html НЕ НАЙДЕН!"; fi
+          
       - name: Build APK
         run: |
           mkdir -p app/src/main/assets
-          cp index.html app/src/main/assets/
+          cp ./index.html app/src/main/assets/
           
           echo 'sdk.dir='$ANDROID_HOME > local.properties
           gradle wrapper --gradle-version 8.5
